@@ -1,0 +1,27 @@
+span {
+  display: block;
+  height: 30px;
+}
+
+.spin {
+  animation: spin 0.1s ease-in-out forwards;
+}
+
+.span3 {
+  color: red;
+}
+
+div {
+  display: block;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@keyframes spin {
+  to {
+    transform: translateY(-30px);
+  }
+}
