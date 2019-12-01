@@ -1,10 +1,17 @@
+:root {
+  --random-spin: 1;
+}
+
 span {
   display: block;
   height: 30px;
 }
 
-.spin {
-  animation: spin 0.1s ease-in-out forwards;
+.spin,
+.spin2,
+.spin3 {
+  animation: spin ease-in-out forwards;
+  animation-duration: calc(var(--random-spin) * 0.1s);
 }
 
 .span3 {
@@ -22,6 +29,10 @@ div {
 
 @keyframes spin {
   to {
-    transform: translateY(-30px);
+    transform: translateY(calc(var(--random-spin) * -30px));
   }
+}
+
+.stop {
+  display: none;
 }
