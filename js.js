@@ -65,6 +65,7 @@ function clearThirdInterval() {
     let picked2 = document.querySelector(".div2 .span3").textContent;
     let picked3 = document.querySelector(".div3 .span3").textContent;
     console.log("wylosowałeś: " + picked1 + " " + picked2 + " " + picked3);
+    console.log(arr1[3] + " " + arr2[3] + " " + arr3[3]);
   }, 2000);
 }
 
