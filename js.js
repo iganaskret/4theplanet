@@ -18,9 +18,10 @@ populate(divThree);
 
 function populate(div) {
   for (let i = 0; i < 6; i++) {
-    let span = document.createElement("span");
+    let span = document.createElement("img");
     span.classList.add("span" + i);
-    span.textContent = i;
+    // span.textContent = i;
+    span.src = "icon.png";
     div.appendChild(span);
   }
 }

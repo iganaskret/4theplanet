@@ -2,7 +2,8 @@
   --random-spin: 1;
 }
 
-span {
+span,
+img {
   display: block;
   height: 30px;
 }
@@ -16,6 +17,7 @@ span {
 
 .span3 {
   color: red;
+  border: 1px solid blue;
 }
 
 div {
@@ -29,10 +31,14 @@ div {
 
 @keyframes spin {
   to {
-    transform: translateY(calc(var(--random-spin) * -30px));
+    transform: translateY(calc(var(--random-spin) * -50px));
   }
 }
 
 .stop {
   display: none;
+}
+
+img {
+  width: 20px;
 }
