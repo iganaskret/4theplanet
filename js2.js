@@ -5,7 +5,7 @@ const arr2 = [0, 1, 2, 3, 4, 5];
 const arr3 = [0, 1, 2, 3, 4, 5];
 
 function randomNumbers() {
-  return Math.floor(Math.random() * 30);
+  return Math.floor(Math.random() * 15);
 }
 
 let divOne = document.querySelector(".div1");
@@ -18,10 +18,10 @@ populate(divThree);
 
 function populate(div) {
   for (let i = 0; i < 6; i++) {
-    let span = document.createElement("span");
+    let span = document.createElement("img");
     span.classList.add("span" + i);
-    span.textContent = i;
-    // span.src = "icon.png";
+    // span.textContent = i;
+    span.src = "icon.png";
     div.appendChild(span);
   }
 }
@@ -43,26 +43,16 @@ document.querySelector("button").addEventListener("click", () => {
   }, 20);
   document.querySelector("button").style.display = "none";
   document.querySelector("button.stop").style.display = "block";
-  setTimeout(stopSpinning, 100 * randomNumbers());
 });
 
-function stopSpinning() {
+document.querySelector("button.stop").addEventListener("click", () => {
   clearInterval(interval);
   clearSecondInterval();
   clearThirdInterval();
   document.querySelector("button").style.display = "block";
   document.querySelector("button.stop").style.display = "none";
   didIWin();
-}
-
-// document.querySelector("button.stop").addEventListener("click", () => {
-//   clearInterval(interval);
-//   clearSecondInterval();
-//   clearThirdInterval();
-//   document.querySelector("button").style.display = "block";
-//   document.querySelector("button.stop").style.display = "none";
-//   didIWin();
-// });
+});
 
 function clearSecondInterval() {
   setTimeout(() => {
