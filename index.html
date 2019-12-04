@@ -8,15 +8,19 @@
     <title>Form</title>
   </head>
   <body>
-    <h1>Form</h1>
     <form id="form1">
-      <input type="text" name="fullname" value="Full name" required />
+      <h1 class="form-heading">Let us send you a special free subscription code</h1>
+      <input type="text" name="fullname" placeholder="Fullname" required />
       <br />
-      <input type="email" name="email" value="Email" required />
+      <input type="email" name="email" placeholder="Email" required />
       <br />
-      <input type="radio" name="subscription" value="yes" checked /> Yes<br />
-      <input type="radio" name="subscription" value="no" /> No<br />
       <br />
+      <p>Do you want to stay informed with our monthly emails?</p>
+      <br />
+      <input type="radio" name="subscription" value="true" checked aria-checked="true" /> Yes<br />
+      <input type="radio" name="subscription" value="false" /> No<br />
+      <br />
+
       <button type="submit" name="submit" class="submit">Submit</button>
     </form>
     <script src="script/script.js"></script>

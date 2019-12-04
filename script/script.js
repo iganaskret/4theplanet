@@ -1,5 +1,8 @@
 "use strict";
 
+const form = document.querySelector("form#form1");
+form.setAttribute("novalidate", true);
+
 fetch("https://form4earth-2b74.restdb.io/rest/form4earth", {
   method: "get",
   headers: {
@@ -11,23 +14,42 @@ fetch("https://form4earth-2b74.restdb.io/rest/form4earth", {
   .then(e => e.json())
   .then(e => console.log(e));
 
-document.querySelector(".submit").addEventListener("click", () => {
-  submitForm();
+form.addEventListener("submit", evt => {
+  evt.preventDefault();
+
+  if (form.reportValidity()) {
+    const inputData = {
+      Name: form.elements.fullname.value,
+      Email: form.elements.email.value,
+      Subscriber: form.elements.subscription.value
+    };
+    submitForm(inputData);
+  } else {
+    alert("It's seems like your email is incorrect");
+  }
+  // const inputData = {
+  //   Name: form.elements.fullname.value,
+  //   Email: form.elements.email.value,
+  //   Subscriber: form.elements.subscription.value
+  // };
+  // submitForm(inputData);
 });
 
-function submitForm() {
-  console.log("click");
-  post();
-}
+// function submitForm() {
+//   post();
+// }
 
-function post() {
-  const data = {
-    Name: "Tomek",
-    Email: "romek@kea.dk",
-    Subscriber: "true"
-  };
+function submitForm(inputData) {
+  // let data = {
+  //   Name: "Tomek",
+  //   Email: "romek@kea.dk",
+  //   Subscriber: "true"
+  //   // Name: form.elements.fullname.value,
+  //   // Email: form.elements.email.value,
+  //   // Subscriber: "true"
+  // };
 
-  const postData = JSON.stringify(data);
+  let postData = JSON.stringify(inputData);
   fetch("https://form4earth-2b74.restdb.io/rest/form4earth", {
     method: "post",
     headers: {
@@ -38,5 +60,9 @@ function post() {
     body: postData
   })
     .then(res => res.json())
-    .then(data => console.log(data));
+    // .then(inputData => console.log(inputData))
+    .then(inputData => submittingCompleted(inputData));
+}
+function submittingCompleted() {
+  document.location.href = "subpage.html";
 }

@@ -13,6 +13,7 @@ html {
 :root {
   --main-bg-color: rgb(237, 237, 237);
   --text-color: #000;
+  --border-color: #707070;
 }
 body,
 html {
@@ -24,4 +25,64 @@ html {
   scroll-behavior: smooth;
   background-color: var(--main-bg-color);
   color: var(--text-color);
+}
+/* FORM STYLING */
+
+#form1 {
+  padding: 2em;
+}
+input {
+  font-size: inherit;
+  border-radius: 5px;
+  border: 2px solid var(--text-color);
+  background: var(--main-bg-color);
+  display: block;
+  outline: none;
+  padding: 10px 20px;
+}
+input:focus {
+  background: var(--main-bg-color);
+}
+input[type="radio"] {
+  -webkit-appearance: none;
+  background: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 1px solid var(--text-color);
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+input[type="radio"]:checked::after {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--text-color);
+  border-radius: 50%;
+  content: "";
+}
+input:invalid:not(:placeholder-shown):not(:focus) {
+  border-color: red;
+  background-position-x: calc(100% - 16px);
+  background-position-y: 50%;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  color: red;
+  background-image: var(--error);
+  animation: shake 0.125s 2 backwards;
+}
+.submit {
+  font-size: inherit;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid var(--text-color);
+  background-color: var(--main-bg-color);
+}
+.submit:hover {
+  background-color: var(--text-color);
+  color: var(--main-bg-color);
+}
+.form-heading {
+  padding-bottom: 1em;
 }
