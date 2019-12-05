@@ -144,7 +144,23 @@ function spin(arr, nr) {
     } else {
       arr[i] = arr[i] + 1;
     }
-    document.querySelector(".div" + nr + " .span" + i).src =
-      "icons/gamico" + arr[i] + ".png";
+    // document.querySelector(".div" + nr + " .span" + i).src =
+    //   "icons/gamico" + arr[i] + ".png";
+
+    if (nr == 1) {
+      document.querySelector(".div" + nr + " .span" + i).src =
+        "icons/gamico" + arr[i] + ".png";
+    }
+    else if (nr == 2) {
+      let j = i + 1;
+      if (j == 6) { j = 0 }
+      document.querySelector(".div" + nr + " .span" + i).src =
+        "icons/gamico" + arr[j] + ".png";
+    } else if (nr == 3) {
+      let j = i - 1;
+      if (j == -1) { j = 5 }
+      document.querySelector(".div" + nr + " .span" + i).src =
+        "icons/gamico" + arr[j] + ".png";
+    }
   }
 }
