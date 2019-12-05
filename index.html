@@ -11,28 +11,34 @@
   </head>
   <body>
     <svg id="morph" height="100%" width="100%" viewBox="0 0 1920 1080" preserveAspectRatio="none">
-      <path class="morph" d="M8734-7299v541.817s489.46-163.709,970.04-218.279,952.279,0,952.279,0V-7299Z" transform="translate(-8734 7299)"></path>
+      <g>
+        <path fill="#F9BD54" class="morph" d="M8734-7299v541.817s489.46-163.709,970.04-218.279,952.279,0,952.279,0V-7299Z" transform="translate(-4965 3301.651)"></path>
+      </g>
     </svg>
 
     <section id="sect_1">
       <button id="code_btn" class="submit">Click to get your code</button>
     </section>
 
-    <form id="form1">
-      <h1 class="form-heading">Let us send you a special free subscription code</h1>
-      <input type="text" name="fullname" placeholder="Fullname" required />
-      <br />
-      <input type="email" name="email" placeholder="Email" required />
-      <br />
-      <br />
-      <p>Do you want to stay informed with our monthly emails?</p>
-      <br />
-      <input type="radio" name="subscription" value="true" checked aria-checked="true" /> Yes<br />
-      <input type="radio" name="subscription" value="false" /> No<br />
-      <br />
+    <section id="sect_2">
+      <form id="form1">
+        <h1 class="form-heading">Let us send you a special free subscription code</h1>
+        <input type="text" name="fullname" placeholder="Fullname" required />
+        <br />
+        <input type="email" name="email" placeholder="Email" required />
+        <br />
+        <br />
+        <p>Do you want to stay informed with our monthly emails?</p>
+        <br />
+        <div class="wrap_radio">
+          <input type="radio" name="subscription" value="true" checked aria-checked="true" /> Yes<br />
+          <input type="radio" name="subscription" value="false" /> No<br />
+        </div>
+        <br />
 
-      <button type="submit" name="submit" class="submit">Submit</button>
-    </form>
+        <button type="submit" name="submit" class="submit">Submit</button>
+      </form>
+    </section>
 
     <script src="script/script.js"></script>
   </body>
