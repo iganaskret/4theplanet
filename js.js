@@ -12,16 +12,24 @@ let divOne = document.querySelector(".div1");
 let divTwo = document.querySelector(".div2");
 let divThree = document.querySelector(".div3");
 
-populate(divOne);
-populate(divTwo);
-populate(divThree);
+populate(divOne, 1);
+populate(divTwo, 2);
+populate(divThree, 3);
 
-function populate(div) {
+function populate(div, nr) {
   for (let i = 0; i < 6; i++) {
     let span = document.createElement("img");
+    if (nr == 1) { span.src = "icons/gamico" + i + ".png"; }
+    else if (nr == 2) {
+      let j = i + 1;
+      if (j == 6) { j = 0 }
+      span.src = "icons/gamico" + j + ".png";
+    } else if (nr == 3) {
+      let j = i - 1;
+      if (j == -1) { j = 5 }
+      span.src = "icons/gamico" + j + ".png";
+    }
     span.classList.add("span" + i);
-    // span.textContent = i;
-    span.src = "icons/gamico" + i + ".png";
     div.appendChild(span);
   }
 }
