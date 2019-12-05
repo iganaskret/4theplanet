@@ -18,10 +18,10 @@ populate(divThree);
 
 function populate(div) {
   for (let i = 0; i < 6; i++) {
-    let span = document.createElement("span");
+    let span = document.createElement("img");
     span.classList.add("span" + i);
-    span.textContent = i;
-    // span.src = "icon.png";
+    // span.textContent = i;
+    span.src = "icons/gamico" + i + ".png";
     div.appendChild(span);
   }
 }
@@ -136,6 +136,7 @@ function spin(arr, nr) {
     } else {
       arr[i] = arr[i] + 1;
     }
-    document.querySelector(".div" + nr + " .span" + i).innerHTML = arr[i];
+    document.querySelector(".div" + nr + " .span" + i).src =
+      "icons/gamico" + arr[i] + ".png";
   }
 }

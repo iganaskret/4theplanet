@@ -5,7 +5,7 @@
 span,
 img {
   display: block;
-  height: 30px;
+  /* height: 30px; */
 }
 
 .spin,
@@ -15,10 +15,10 @@ img {
   animation-duration: calc(var(--random-spin) * 0.1s);
 }
 
-.span3 {
+/* .span3 {
   color: red;
   border: 1px solid blue;
-}
+} */
 
 div {
   display: block;
@@ -31,7 +31,7 @@ div {
 
 @keyframes spin {
   to {
-    transform: translateY(calc(var(--random-spin) * -50px));
+    transform: translateY(calc(var(--random-spin) * -90px));
   }
 }
 
@@ -40,5 +40,5 @@ div {
 }
 
 img {
-  width: 20px;
+  width: 90px;
 }
