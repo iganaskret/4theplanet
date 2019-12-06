@@ -12,10 +12,10 @@ html {
 }
 :root {
   --main-bg-color: rgb(237, 237, 237);
-  --text-color: #000;
+  /* --text-color: #000; */
   --border-color: #707070;
+  --text-color: #000;
   --special-color: #f9bd54;
-  /* --special-color: pink; */
 }
 body,
 html {
@@ -26,12 +26,24 @@ html {
   height: 100%;
   scroll-behavior: smooth;
   background-color: var(--main-bg-color);
-  color: var(--special-color);
+  color: var(--text-color);
+  background: var(--main-bg-color);
+  /* background-image: url("gradient.gif");
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative; */
+}
+main {
+  padding: 0 20px;
 }
 /* FORM STYLING */
 
 #form1 {
-  padding: 10% 20%;
+  padding: 1em;
+  background: var(--special-color);
 }
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -91,6 +103,8 @@ input:invalid:not(:placeholder-shown):not(:focus) {
   border: 2px solid var(--main-bg-color);
   background-color: var(--special-color);
   color: var(--main-bg-color);
+  margin: 0 auto;
+  display: block;
 }
 .submit:hover {
   color: var(--special-color);
@@ -99,6 +113,7 @@ input:invalid:not(:placeholder-shown):not(:focus) {
 .form-heading {
   padding-bottom: 1em;
   color: var(--main-bg-color);
+  font-size: 2em;
 }
 /* SVG MORPHING */
 #morph {
@@ -133,8 +148,121 @@ section {
   position: absolute;
   z-index: 2;
   color: var(--main-bg-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--special-color);
 }
 
 .display {
   display: block !important;
+}
+
+/* NAVBAR */
+
+.full-nav {
+  overflow: hidden;
+  /* position: fixed; */
+  top: 0;
+  width: 100%;
+  background: transparent;
+  padding: 20px 10px;
+  font-size: 20px;
+}
+
+.nav-right li {
+  list-style-type: none;
+  /* font-size: 20px; */
+  padding-right: 10px;
+}
+.nav-left li {
+  list-style-type: none;
+  /* font-size: 21px; */
+  padding-left: 10px;
+  float: left;
+  display: block;
+  font-weight: bold;
+  /* font-size: 25px;*/
+}
+
+.nav-right a {
+  display: block;
+  text-align: right;
+  color: var(--text-color);
+  float: right;
+  text-decoration: none;
+  padding-right: 10px;
+}
+.nav-left a {
+  display: block;
+  text-align: center;
+  color: var(--text-color);
+  float: right;
+  text-decoration: none;
+}
+.nav-right a:hover {
+  color: grey;
+}
+#menu {
+  margin-top: 80px;
+}
+.menu-head {
+  text-align: center;
+  color: white;
+}
+.contact-links {
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+.link:hover {
+  color: grey;
+}
+
+/* lottie */
+#svg_landing {
+  margin: 3em 0;
+}
+
+h1.paragraph_title {
+  padding-bottom: 1em;
+  font-weight: 900;
+}
+p.paragraph_text {
+  line-height: 150%;
+}
+img.paragraph_img {
+  width: 100%;
+  height: auto;
+}
+
+/* MEDIA QUERIES */
+
+/*
+@media only screen and (min-width: 600px) {
+  /* For tablets: 
+}*/
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 3em;
+    grid-row-gap: 2em;
+  }
+  #svg_landing {
+    padding: 2em 4em;
+  }
+  .landing {
+    margin-top: 40%;
+  }
 }
