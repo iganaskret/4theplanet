@@ -51,18 +51,22 @@ function submitForm(inputData) {
     // .then(inputData => console.log(inputData))
     .then(inputData => submittingCompleted(inputData));
 }
-function submittingCompleted() {
-  // document.location.href = "subpage.html";
-  morphing.reverse();
-  morphing.play();
-  overlay.classList.remove("pointer");
-  sect2.classList.remove("animated", "display", "flipInY", "delay-1s");
+function submittingCompleted(inputData) {
+  console.log(inputData);
+  if (inputData.status == 400) {
+    alert("Your email is already in our database!");
+  } else {
+    // document.location.href = "subpage.html";
+    morphing.reverse();
+    morphing.play();
+    overlay.classList.remove("pointer");
+    sect2.classList.remove("animated", "display", "flipInY", "delay-1s");
+  }
 }
 
 // MORPH TRANSITIONS
 
 var btn = document.querySelector("#code_btn");
-//var btn2 = document.querySelector("#code_btn2");
 var sect1 = document.querySelector("#sect_1");
 var sect2 = document.querySelector("#sect_2");
 var overlay = document.querySelector("#morph");
