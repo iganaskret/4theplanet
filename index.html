@@ -30,7 +30,18 @@
             </ul>
           </nav>
     <main>
-      <div class="landing"><div class="newsletter_form"></div></div><div id="svg_landing"></div>
+      <div class="landing"><div id="newsletter_part">
+          <section class="hide">
+            <a class="button arrow">Stay tuned</a>
+            <a class="button2 arrow2">S</a>
+          </section>
+          <a class="button3 arrow3">Stay tuned</a>
+    
+          <form id="form_newsletter" class="hide">
+            <input type="email" name="email" placeholder="Email" required />
+            <button type="submit" name="submit" class="submit subscribe">Subscribe</button>
+          </form><br>
+        </div></div><div id="svg_landing"></div>
       <div class="impact"></div>
       <div class="steps"></div>
       <div class="slot"></div>
@@ -52,10 +63,12 @@
     </section>
 
     <section id="sect_2">
-      <form id="form1">
+      <form id="form_code">
         <h1 class="form-heading">Let us send you a special free subscription code</h1>
+        <label for="text">Fullname: </label>
         <input type="text" name="fullname" placeholder="Fullname" required />
         <br />
+        <label for="email">Email: </label>
         <input type="email" name="email" placeholder="Email" required />
         <br />
         <br />
