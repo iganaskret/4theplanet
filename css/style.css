@@ -358,7 +358,7 @@ a.button3 {
 }
 .arrow3::after {
   display: inline-block;
-  padding-left: 0px;
+  padding-left: 20px;
   content: "\0279E";
   transition: -webkit-transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
