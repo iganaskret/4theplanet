@@ -11,7 +11,7 @@ class Filtering extends Component {
   render() {
     return (
       <div>
-        <span>Monthly subscriber</span>
+        <span>Activated</span>
         <FilteringOption value="yes" filterList={this.props.filterList} />
         <FilteringOption value="no" filterList={this.props.filterList} />
         <FilteringOption value="all" filterList={this.props.filterList} />

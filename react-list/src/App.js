@@ -1,126 +1,62 @@
 import React, { Component } from "react";
 import List from "./List.js";
-import ListItem from "./ListItem.js";
-import Filtering from "./Filtering";
-import Sorting from "./Sorting";
+import NewsletterList from "./NewsletterList";
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      loading: false,
-      users: []
-    };
-    this.deleteRecord = this.deleteRecord.bind(this);
-    this.filterList = this.filterList.bind(this);
-    this.sortList = this.sortList.bind(this);
+    this.state = { usersOn: true, newsletterOn: false };
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidMount() {
-    this.setState({ loading: true });
-    const baseURL = "https://form4earth-2b74.restdb.io/rest/form4earth";
-    const headers = {
-      "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": "5de4e9004658275ac9dc2184",
-      "cache-control": "no-cache"
-    };
-    fetch(baseURL, {
-      method: "get",
-      headers: headers
-    })
-      .then(response => response.json())
-      .then(data => this.setState({ users: data, loading: false }));
-  }
-
-  deleteRecord(id) {
-    fetch("https://form4earth-2b74.restdb.io/rest/form4earth/" + id, {
-      method: "delete",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        "x-apikey": "5de4e9004658275ac9dc2184",
-        "cache-control": "no-cache"
-      }
-    })
-      .then(res => res.json())
-      .then(
-        this.setState(prevState => {
-          const updatedUsers = prevState.users.map(user => {
-            if (user._id === id) {
-              user.isDeleted = true;
-            }
-            return user;
-          });
-          return {
-            users: updatedUsers
-          };
-        })
-      );
-  }
-
-  filterList(e) {
-    e.target.checked = true;
-
-    // check which filtering option is checked
-    const value = e.target.id;
-
-    this.setState(prevState => {
-      const filteredUsers = prevState.users.map(user => {
-        if (value === "all") {
-          user.isHidden = false;
-        } else if (value === "yes") {
-          if (user.Subscriber) {
-            user.isHidden = false;
-          } else {
-            user.isHidden = true;
-          }
-        } else {
-          if (!user.Subscriber) {
-            user.isHidden = false;
-          } else {
-            user.isHidden = true;
-          }
-        }
-        return user;
+  handleClick(e, name) {
+    if (name === "users") {
+      this.setState({
+        usersOn: true,
+        newsletterOn: false
       });
-      return {
-        users: filteredUsers
-      };
-    });
-  }
-
-  sortList(e) {
-    let value = e.target.value;
-    // sorting the list that is received, before displaying it
-    var obj = [...this.state.users];
-
-    this.setState(prevState => {
-      if (value != "none") {
-        // sort by chosen option
-        obj.sort((a, b) => {
-          console.log(a, b);
-          return a[value].localeCompare(b[value]);
-        });
-      }
-      const sortedUsers = obj.map(user => {
-        return user;
+      console.log(this.state.usersOn);
+    } else {
+      this.setState({
+        usersOn: false,
+        newsletterOn: true
       });
-      return {
-        users: sortedUsers
-      };
-    });
+    }
   }
-
   render() {
-    const text = this.state.loading
-      ? "loading..."
-      : this.state.users.map(user => {
-          return <ListItem user={user} deleteRecord={this.deleteRecord} />;
-        });
+    const newStyle = {
+      display: "none"
+    };
     return (
       <main>
-        <Sorting sortList={this.sortList} />
-        <Filtering filterList={this.filterList} />
-        <List user={text} />
+        <div className="tab-btns">
+          <button
+            onClick={e => {
+              this.handleClick(e, "users");
+            }}
+          >
+            users
+          </button>
+          <button
+            onClick={e => {
+              this.handleClick(e, "newsletter");
+            }}
+          >
+            newsletter
+          </button>
+        </div>
+        <div className="tab1">
+          <h1 style={this.state.usersOn ? null : newStyle}>List of users </h1>
+          <List visibility={this.state.usersOn} />
+        </div>
+        <div className="tab2">
+          <h1 style={this.state.newsletterOn ? null : newStyle}>
+            List of subscribers
+          </h1>
+          <NewsletterList visibility={this.state.newsletterOn} />
+        </div>
       </main>
     );
   }
