@@ -19,14 +19,19 @@ populate(divThree, 3);
 function populate(div, nr) {
   for (let i = 0; i < 6; i++) {
     let span = document.createElement("img");
-    if (nr == 1) { span.src = "icons/gamico" + i + ".png"; }
-    else if (nr == 2) {
+    if (nr == 1) {
+      span.src = "icons/gamico" + i + ".png";
+    } else if (nr == 2) {
       let j = i + 1;
-      if (j == 6) { j = 0 }
+      if (j == 6) {
+        j = 0;
+      }
       span.src = "icons/gamico" + j + ".png";
     } else if (nr == 3) {
       let j = i - 1;
-      if (j == -1) { j = 5 }
+      if (j == -1) {
+        j = 5;
+      }
       span.src = "icons/gamico" + j + ".png";
     }
     span.classList.add("span" + i);
@@ -84,6 +89,9 @@ function clearThirdInterval() {
     let picked2 = document.querySelector(".div2 .span3").textContent;
     let picked3 = document.querySelector(".div3 .span3").textContent;
     console.log("wylosowałeś: " + picked1 + " " + picked2 + " " + picked3);
+    if (arr1[3] === arr2[3] && arr1[3] === arr3[3]) {
+      console.log("wygrana");
+    }
     console.log(arr1[3] + " " + arr2[3] + " " + arr3[3]);
   }, 2000);
 }
@@ -137,7 +145,6 @@ function endSpin3() {
 }
 
 function spin(arr, nr) {
-  console.log(arr);
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] == 5) {
       arr[i] = 0;
@@ -150,15 +157,18 @@ function spin(arr, nr) {
     if (nr == 1) {
       document.querySelector(".div" + nr + " .span" + i).src =
         "icons/gamico" + arr[i] + ".png";
-    }
-    else if (nr == 2) {
+    } else if (nr == 2) {
       let j = i + 1;
-      if (j == 6) { j = 0 }
+      if (j == 6) {
+        j = 0;
+      }
       document.querySelector(".div" + nr + " .span" + i).src =
         "icons/gamico" + arr[j] + ".png";
     } else if (nr == 3) {
       let j = i - 1;
-      if (j == -1) { j = 5 }
+      if (j == -1) {
+        j = 5;
+      }
       document.querySelector(".div" + nr + " .span" + i).src =
         "icons/gamico" + arr[j] + ".png";
     }
