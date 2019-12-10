@@ -194,3 +194,12 @@ function submittingCompletedNewsletter(inputData) {
     form_newsletter.classList.add("hide");
   }
 }
+
+// SLOT MACHINE
+
+const machine_lever = document.querySelector(".lever");
+
+machine_lever.addEventListener("click", function() {
+  machine_lever.classList.add("lever_animation");
+  console.log("clcik");
+});
