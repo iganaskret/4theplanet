@@ -2,10 +2,10 @@
   --random-spin: 1;
 }
 
-span,
-img {
+.div1 img,
+.div2 img,
+.div3 img {
   display: block;
-  /* height: 30px; */
 }
 
 .spin,
@@ -15,16 +15,7 @@ img {
   animation-duration: calc(var(--random-spin) * 0.1s);
 }
 
-/* .span3 {
-  color: red;
-  border: 1px solid blue;
-} */
-
-div {
-  display: block;
-}
-
-.grid {
+.grid-slot {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -39,6 +30,6 @@ div {
   display: none;
 }
 
-img {
+.grid-slot img {
   width: 90px;
 }
