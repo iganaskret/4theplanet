@@ -151,8 +151,6 @@ function spin(arr, nr) {
     } else {
       arr[i] = arr[i] + 1;
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
     // document.querySelector(".div" + nr + " .span" + i).src =
     //   "icons/gamico" + arr[i] + ".png";
 
@@ -174,13 +172,5 @@ function spin(arr, nr) {
       document.querySelector(".div" + nr + " .span" + i).src =
         "icons/gamico" + arr[j] + ".png";
     }
-=======
-    document.querySelector(".div" + nr + " .span" + i).src =
-      "icons/gamico" + arr[i] + ".png";
->>>>>>> parent of 40960ef0... chyba juz
-=======
-    document.querySelector(".div" + nr + " .span" + i).src =
-      "icons/gamico" + arr[i] + ".png";
->>>>>>> parent of 40960ef0... chyba juz
   }
 }
