@@ -11,12 +11,10 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 :root {
-  /* --main-bg-color: rgb(237, 237, 237); */
-  --main-bg-color: #080e26;
+  --main-bg-color: rgb(237, 237, 237);
   /* --text-color: #000; */
   --border-color: #707070;
-  /* --text-color: #000; */
-  --text-color: #ffe9df;
+  --text-color: #000;
   --special-color: #f9bd54;
 }
 body,
@@ -141,7 +139,7 @@ section {
   color: var(--main-bg-color);
   display: block;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 1em;
   width: 200px;
   padding: 1em;
   margin: 2em;
@@ -214,7 +212,7 @@ section {
   color: grey;
 }
 #menu {
-  margin-top: 80px;
+  margin-top: 4em;
 }
 .menu-head {
   text-align: center;
@@ -236,9 +234,7 @@ section {
 }
 
 /* lottie */
-#svg_landing {
-  margin: 3em 0;
-}
+
 
 h1.paragraph_title {
   padding-bottom: 1em;
@@ -252,18 +248,21 @@ img.paragraph_img {
   width: 50%;
   height: auto;
   margin: auto;
+  grid-row:1/3;
 }
 .landing.paragraph {
   display: grid;
 }
 #newsletter_part {
-  grid-row: 3;
+  grid-row: 4;
+  margin-bottom: 20%;
 }
 .paragraph {
   margin: 1em;
   padding: 0.5em;
-  grid-gap: 0.5em;
+  grid-gap: 2em;
 }
+
 
 /* Newsletter styling and keyframes */
 .hide {
@@ -530,19 +529,21 @@ a.button3 {
 /* Newsletter styling and keyframes - END */
 
 /* Slot machine */
-/* Slot machine */
 .slot_machine {
   position: absolute;
-  margin: 2em;
+  margin:2em;
+
 }
 .grid-slot {
   display: grid;
   grid-template-columns: repeat(3, 100px);
   justify-content: center;
   position: absolute;
-  transform: scale(0.5) translate(176px, -70px);
+  transform: scale(0.5)translate(176px, -70px);
   z-index: -10;
   clip-path: polygon(0 40%, 100% 40%, 100% 75%, 0 75%);
+
+
 }
 .grid-slot img {
   width: 90px;
@@ -560,6 +561,7 @@ a.button3 {
   left: 0;
   cursor: pointer;
 }
+
 
 .lever_animation {
   animation: pull 3s infinite;
@@ -598,6 +600,7 @@ a.button3 {
   animation-duration: calc(var(--random-spin) * 0.1s);
 }
 
+
 @keyframes spin {
   to {
     transform: translateY(calc(var(--random-spin) * -90px));
@@ -607,6 +610,8 @@ a.button3 {
 .stop {
   display: none;
 }
+
+
 
 /* MEDIA QUERIES */
 
@@ -623,7 +628,7 @@ a.button3 {
     height: auto;
     z-index: 10;
   }
-
+ 
   .machine {
     position: relative;
     top: 0;
@@ -634,15 +639,16 @@ a.button3 {
     top: 0;
     left: 0;
   }
-  .grid-slot {
+  .grid-slot{
     display: grid;
     grid-template-columns: repeat(3, 100px);
     justify-content: center;
     position: absolute;
     z-index: -10;
-    transform: scale(0.5) translate(175px, -1550px);
+    transform: scale(0.5)translate(175px, -1550px);
     clip-path: polygon(0 40%, 100% 40%, 100% 75%, 0 75%);
   }
+  
 
   .paragraph {
     display: grid;
@@ -651,10 +657,11 @@ a.button3 {
     min-height: 40vw;
   }
   .paragraph:nth-child(even) img {
+
     margin: auto;
   }
   .paragraph:nth-child(odd) img {
-    grid-column: 2;
+grid-column: 2;
     margin: auto;
   }
   .landing.paragraph:nth-child(even) img {
@@ -679,14 +686,5 @@ a.button3 {
     grid-column: 2;
     grid-row: 1/5;
   }
-}
-#lottie3 > image {
-  width: 200px;
-  height: 200px;
-  z-index: 50;
-}
-#lottie2 > image {
-  width: 200px;
-  height: 200px;
-  z-index: 50;
+
 }

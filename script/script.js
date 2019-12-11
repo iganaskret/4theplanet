@@ -97,6 +97,8 @@ function loadData() {
     .then(showWpData);
 }
 
+let counter = 1;
+
 function showWpData(data) {
   data.forEach(post => {
     //clone
@@ -104,31 +106,40 @@ function showWpData(data) {
     //populate
     const paragraph_title = clone.querySelector(".paragraph_title");
     const paragraph_text = clone.querySelector(".paragraph_text");
-    const paragraph_img = clone.querySelector(".paragraph_img");
+    // const paragraph_img = clone.querySelector(".paragraph_img");
+
+    // counter, dodaje id #lottie + counter
+
+    clone.querySelector(".lottie-placeholder").setAttribute("id", "lottie" + counter);
+    counter++;
 
     paragraph_title.textContent = post.title.rendered;
     paragraph_text.textContent = post.content.rendered;
     // paragraph_img.src = post._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
-    if (post.img != false) paragraph_img.src = post.img.guid;
+    // if (post.img != false) paragraph_img.src = post.img.guid;
+
+    // paragraph_img.src = anim;
 
     // console.log(post);
 
     //append
     document.querySelector("." + post.position).appendChild(clone);
   });
+  loadLottieData();
+  loadLottieData2();
 }
 
 loadData(postLink);
 
 // LOTTIE IPHONE
 
-let animation = lottie.loadAnimation({
-  container: document.querySelector("#svg_landing"), // the dom element that will contain the animation
-  renderer: "svg",
-  loop: false,
-  autoplay: true,
-  path: "data.json" // the path to the animation json
-});
+// let animation = lottie.loadAnimation({
+//   container: document.querySelector("#svg_landing"), // the dom element that will contain the animation
+//   renderer: "svg",
+//   loop: false,
+//   autoplay: true,
+//   path: "data.json" // the path to the animation json
+// });
 
 // NEWSLETTER - 1step form
 // https://form4earth-2b74.restdb.io/rest/subscribers
@@ -201,5 +212,65 @@ const machine_lever = document.querySelector(".lever");
 
 machine_lever.addEventListener("click", function() {
   machine_lever.classList.add("lever_animation");
-  console.log("clcik");
 });
+
+// SCROLL LOTTIE INTERACTION
+
+function loadLottieData() {
+  var anim;
+  let elem = document.querySelector("#lottie3");
+  let animData = {
+    container: elem,
+    renderer: "svg",
+    loop: false,
+    autoplay: false,
+    rendererSettings: {
+      progressiveLoad: false,
+      preserveAspectRatio: "xMidYMid slice"
+    },
+    path: "icon_1.json"
+  };
+  anim = bodymovin.loadAnimation(animData);
+
+  $(window).scroll(function() {
+    // calculate the percentage the user has scrolled down the page
+    let scrollPercent = (100 * $(window).scrollTop()) / ($(document).height() - $(window).height());
+
+    // console.log(anim.currentRawFrame);
+
+    let scrollPercentRounded = Math.round(scrollPercent);
+
+    /*console.log( (scrollPercentRounded / 100) * anim.totalFrames );*/
+
+    anim.goToAndStop((scrollPercentRounded / 100) * 4000);
+  });
+}
+function loadLottieData2() {
+  var anim2;
+  let elem2 = document.querySelector("#lottie2");
+  let animData = {
+    container: elem2,
+    renderer: "svg",
+    loop: false,
+    autoplay: false,
+    rendererSettings: {
+      progressiveLoad: false,
+      preserveAspectRatio: "xMidYMid slice"
+    },
+    path: "icon_2.json"
+  };
+  anim2 = bodymovin.loadAnimation(animData);
+
+  $(window).scroll(function() {
+    // calculate the percentage the user has scrolled down the page
+    let scrollPercent = (100 * $(window).scrollTop()) / ($(document).height() - $(window).height());
+
+    // console.log(anim2.currentRawFrame);
+
+    let scrollPercentRounded = Math.round(scrollPercent);
+
+    /*console.log( (scrollPercentRounded / 100) * anim.totalFrames );*/
+
+    anim2.goToAndStop((scrollPercentRounded / 100) * 4000);
+  });
+}
