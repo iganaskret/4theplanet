@@ -123,8 +123,10 @@ class List extends Component {
         className="table-users"
         style={this.props.visibility ? null : newStyle}
       >
-        <Sorting sortList={this.sortList} />
-        <Filtering filterList={this.filterList} />
+        <div className="options">
+          <Sorting sortList={this.sortList} />
+          <Filtering filterList={this.filterList} />{" "}
+        </div>
         <table id="list">
           <thead>
             <tr className="head-row">

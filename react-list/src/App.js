@@ -29,33 +29,44 @@ class App extends Component {
     const newStyle = {
       display: "none"
     };
+
+    const activeTab = {
+      backgroundColor: "#2b419a",
+      cursor: "default",
+      height: "60px",
+      transform: "translateY(0px)"
+    };
     return (
       <main>
         <div className="tab-btns">
           <button
+            style={this.state.usersOn ? activeTab : null}
             onClick={e => {
               this.handleClick(e, "users");
             }}
           >
-            users
+            Users
           </button>
           <button
+            style={this.state.newsletterOn ? activeTab : null}
             onClick={e => {
               this.handleClick(e, "newsletter");
             }}
           >
-            newsletter
+            Newsletter subscribers
           </button>
         </div>
-        <div className="tab1">
-          <h1 style={this.state.usersOn ? null : newStyle}>List of users </h1>
-          <List visibility={this.state.usersOn} />
-        </div>
-        <div className="tab2">
-          <h1 style={this.state.newsletterOn ? null : newStyle}>
-            List of subscribers
-          </h1>
-          <NewsletterList visibility={this.state.newsletterOn} />
+        <div className="content">
+          <div className="tab1">
+            <h1 style={this.state.usersOn ? null : newStyle}>List of users </h1>
+            <List visibility={this.state.usersOn} />
+          </div>
+          <div className="tab2">
+            <h1 style={this.state.newsletterOn ? null : newStyle}>
+              List of subscribers
+            </h1>
+            <NewsletterList visibility={this.state.newsletterOn} />
+          </div>
         </div>
       </main>
     );

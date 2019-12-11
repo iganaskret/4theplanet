@@ -10,7 +10,7 @@ class Filtering extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="filtering">
         <span>Activated</span>
         <FilteringOption value="yes" filterList={this.props.filterList} />
         <FilteringOption value="no" filterList={this.props.filterList} />

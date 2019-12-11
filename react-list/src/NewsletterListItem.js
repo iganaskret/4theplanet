@@ -14,11 +14,11 @@ class NewsletterListItem extends Component {
       >
         <td data-field="email">{this.props.user.Email}</td>
         <button
-          className="delete"
+          className="delete delete-column"
           onClick={() => this.props.deleteRecord(this.props.user._id)}
           id={this.props.user._id}
         >
-          delete
+          &#10005;
         </button>
       </tr>
     );
