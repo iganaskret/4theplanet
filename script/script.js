@@ -1,5 +1,38 @@
 "use strict";
 
+// LOADER GIF
+
+let loader;
+
+function loadNow(opacity) {
+  if (opacity <= 0) {
+    displayContent();
+  } else {
+    loader.style.opacity = opacity;
+    window.setTimeout(function() {
+      loadNow(opacity - 0.05);
+    }, 100);
+    // window.setTimeout(function() {
+    //   loadNow(opacity - 0.05);
+    // }, 100);
+  }
+}
+function displayContent() {
+  loader.style.display = "none";
+  document.querySelector("#loader_content");
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  loader = document.querySelector("#loader");
+  loadNow(2);
+});
+
+// FADE IN ANIMATION
+//https://www.npmjs.com/package/aos
+AOS.init({
+  duration: 2200
+});
+
 const form_code = document.querySelector("form#form_code");
 const form_newsletter = document.querySelector("#form_newsletter");
 // form.setAttribute("novalidate", true);
@@ -114,7 +147,7 @@ function showWpData(data) {
     counter++;
 
     paragraph_title.textContent = post.title.rendered;
-    paragraph_text.textContent = post.content.rendered;
+    paragraph_text.innerHTML = post.content.rendered;
     // paragraph_img.src = post._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
     // if (post.img != false) paragraph_img.src = post.img.guid;
 
@@ -234,7 +267,7 @@ function loadLottieData() {
 
   $(window).scroll(function() {
     // calculate the percentage the user has scrolled down the page
-    let scrollPercent = (100 * $(window).scrollTop()) / ($(document).height() - $(window).height());
+    let scrollPercent = (120 * $(window).scrollTop()) / ($(document).height() - $(window).height());
 
     // console.log(anim.currentRawFrame);
 
