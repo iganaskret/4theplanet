@@ -1,0 +1,41 @@
+.slot {
+  width: 50%;
+}
+
+:root {
+  --random-spin: 1;
+  --number: 0;
+}
+
+.div1 img,
+.div2 img,
+.div3 img {
+  display: block;
+}
+
+#lever {
+  cursor: pointer;
+}
+
+.spin,
+.spin2,
+.spin3 {
+  animation: spin ease-in-out forwards;
+  animation-duration: calc(var(--random-spin) * 0.2s);
+}
+
+/* @keyframes spin {
+  to {
+    transform: translateY(calc(var(--random-spin) * -180px));
+  }
+} */
+
+@keyframes spin {
+  to {
+    transform: translateY(calc(var(--number) * 10%));
+  }
+}
+
+.stop {
+  display: none;
+}
