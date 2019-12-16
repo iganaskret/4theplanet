@@ -2,8 +2,7 @@
 
 /* INITIAL */
 
-*,
-html {
+* {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
@@ -19,13 +18,12 @@ html {
   --text-color: #ffe9df;
   --special-color: #f9bd54;
 }
-body,
-html {
+body {
   display: block;
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   scroll-behavior: smooth;
   background-color: var(--main-bg-color);
   color: var(--text-color);
@@ -108,7 +106,7 @@ p {
   border: 2px solid var(--main-bg-color);
   background-color: var(--special-color);
   color: var(--main-bg-color);
-  margin: 0 auto;
+  /* margin: 0 auto; */
   display: block;
 }
 #form_code .submit:hover {
@@ -183,8 +181,9 @@ img.landing_img {
   width: 100%;
   height: 100%;
   z-index: 99;
-  overflow: visible;
-  background: #080e26 url(../images/morph.gif) no-repeat center center;
+  /* overflow: visible; */
+  /* background: #080e26 url(../images/morph.gif) no-repeat center center; */
+  background: #080e26 url(https://media.giphy.com/media/1VV747Ys8vI5cUZlqD/giphy.gif) no-repeat center;
 }
 #loader > h1 {
   position: absolute;
@@ -267,7 +266,39 @@ a {
   opacity: 0.6;
 }
 
+/* SVG TICKET BUTTON */
+#ticket_section {
+  position: relative;
+}
+
+.SVG_ticket_btn {
+  /* pointer-events: auto; */
+  width: 100%;
+  height: auto;
+  position: absolute;
+  right: 0;
+  padding: 2em;
+}
 /* lottie */
+#ticketButton {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+#ticketButton:hover svg {
+  transform: scale(1.1);
+}
+#ticketButton::-moz-focus-inner {
+  border: 0;
+}
+#ticketButton svg {
+  outline: none;
+  transition: transform 0.15s linear;
+}
+
+/* #svg_ticket {
+  pointer-events: none;
+} */
 #svg_landing {
   margin: 3em 0;
 }
@@ -290,6 +321,7 @@ img.paragraph_img {
 }
 #newsletter_part {
   grid-row: 3;
+  padding-bottom: 3em;
 }
 .paragraph {
   margin: 1em;
@@ -297,9 +329,19 @@ img.paragraph_img {
   grid-gap: 0.5em;
 }
 
+.slot > h1 {
+  padding: 0.5em;
+}
+
 /* Newsletter styling and keyframes */
 .hide {
   display: none;
+}
+
+.newsletter_finish {
+  color: var(--border-color);
+  padding-top: 5em;
+  grid-row: 3;
 }
 /* FORM STYLING */
 
@@ -313,6 +355,7 @@ img.paragraph_img {
   text-align: left;
   padding: 10px 20px;
   background: var(--main-bg-color);
+  color: var(--border-color);
 }
 
 #form_newsletter input[type="email"] {
@@ -321,6 +364,9 @@ img.paragraph_img {
 ::placeholder {
   opacity: 0.6;
 }
+/* input:focus::placeholder {
+  color: pink;
+} */
 .subscribe {
   width: 150px;
   /* margin: 10px; */
@@ -514,6 +560,7 @@ a.button3 {
 
 @keyframes circle-to-oval-submit {
   0% {
+    transform: translateX(-50px);
     /* opacity: 0; */
     width: 50px;
     color: var(--main-bg-color);
@@ -526,6 +573,7 @@ a.button3 {
     padding: 10px 10px;
   }
   100% {
+    transform: translateX(0px);
     /* opacity: 1; */
     width: 150px;
     /* margin: 10px; */
@@ -570,6 +618,7 @@ a.button3 {
 .slot_machine {
   position: absolute;
   margin: 2em;
+  display: none;
 }
 .grid-slot {
   display: grid;
@@ -652,6 +701,15 @@ a.button3 {
 }*/
 
 @media only screen and (min-width: 768px) {
+  .SVG_ticket_btn {
+    /* pointer-events: auto; */
+    width: 20%;
+    height: auto;
+    position: absolute;
+    right: 0;
+    bottom: 4em;
+    padding: 2em;
+  }
   .lottie-placeholder {
     width: 100%;
     height: auto;
@@ -686,6 +744,10 @@ a.button3 {
     z-index: -10;
     transform: scale(0.5) translate(175px, -1550px);
     clip-path: polygon(0 40%, 100% 40%, 100% 75%, 0 75%);
+  }
+
+  .slot > h1 {
+    padding: 2em;
   }
 
   .paragraph {

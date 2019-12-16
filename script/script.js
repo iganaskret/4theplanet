@@ -1,6 +1,8 @@
 "use strict";
 
 // LOADER GIF
+// source code from https://www.youtube.com/watch?v=b9zyKCsUJfY
+// credit to Codegrid
 
 let loader;
 
@@ -12,9 +14,6 @@ function loadNow(opacity) {
     window.setTimeout(function() {
       loadNow(opacity - 0.05);
     }, 100);
-    // window.setTimeout(function() {
-    //   loadNow(opacity - 0.05);
-    // }, 100);
   }
 }
 function displayContent() {
@@ -24,7 +23,7 @@ function displayContent() {
 
 document.addEventListener("DOMContentLoaded", function() {
   loader = document.querySelector("#loader");
-  loadNow(2);
+  loadNow(1);
 });
 
 // FADE IN ANIMATION
@@ -95,12 +94,13 @@ function submittingCompleted(inputData) {
     morphing.play();
     overlay.classList.remove("pointer");
     sect2.classList.remove("animated", "display", "flipInY", "delay-1s");
+    document.body.style = "overflow: auto; ";
   }
 }
 
 // MORPH TRANSITIONS
 
-var btn_code = document.querySelector("#code_btn");
+var btn_code = document.querySelector("#ticketButton");
 var sect1 = document.querySelector("#sect_1");
 var sect2 = document.querySelector("#sect_2");
 var overlay = document.querySelector("#morph");
@@ -108,7 +108,7 @@ var overlay = document.querySelector("#morph");
 var morphing = anime({
   targets: ".morph",
   d: [{ value: "M8734-7299h154.057s469.97.589,956,0,614.614,0,614.614,0H8734Z" }, { value: "M8734-7299l-.184,1079.988h1922.5V-7299Z" }],
-  transform: [{ value: "translate(-100 20)" }, { value: "translate(-8733.816 7299)" }],
+  // transform: [{ value: "translate(-100 20)" }, { value: "translate(-8733.816 7299)" }],
   // WebkitTransform: [{ value: "translate(-100 20)" }, { value: "translate(-8733.816 7299)" }],
   easing: "easeInOutQuint",
   duration: 1300,
@@ -117,6 +117,7 @@ var morphing = anime({
 });
 
 btn_code.addEventListener("click", function() {
+  document.body.style = "overflow: hidden; ";
   morphing.restart();
   overlay.classList.add("pointer");
   sect2.classList.add("animated", "display", "flipInY", "delay-1s");
@@ -164,15 +165,44 @@ function showWpData(data) {
 
 loadData(postLink);
 
-// LOTTIE IPHONE
+// LOTTIE TICKET
 
-// let animation = lottie.loadAnimation({
-//   container: document.querySelector("#svg_landing"), // the dom element that will contain the animation
+fetch("../ticket.svg")
+  .then(e => e.text())
+  .then(data => loadSVG(data));
+
+function loadSVG(data) {
+  document.querySelector(".SVG_ticket_btn").innerHTML = data;
+}
+
+// let params = lottie.loadAnimation({
+//   container: document.querySelector("#svg_ticket"), // the dom element that will contain the animation
 //   renderer: "svg",
 //   loop: false,
 //   autoplay: true,
-//   path: "data.json" // the path to the animation json
+//   path: "/json/data_ticket2.json" // the path to the animation json
 // });
+// code
+let params = {
+  container: document.querySelector("#svg_ticket"), // the dom element that will contain the animation
+  renderer: "svg",
+  loop: false,
+  autoplay: true,
+  path: "/json/data_ticket2.json" // the path to the animation json svg_ticket
+};
+
+document.querySelector("#svg_ticket").addEventListener("click", startTicket);
+
+function startTicket() {
+  console.log("hi");
+}
+
+let anim;
+anim = lottie.loadAnimation(params);
+anim.onComplete = function() {
+  document.querySelector(".SVG_ticket_btn").style = "display: block";
+  document.querySelector("#svg_ticket").style = "opacity: 0";
+};
 
 // NEWSLETTER - 1step form
 // https://form4earth-2b74.restdb.io/rest/subscribers
@@ -236,6 +266,8 @@ function submittingCompletedNewsletter(inputData) {
   } else {
     alert("Well done");
     form_newsletter.classList.add("hide");
+    // form_newsletter.appendChild(this.document.querySelector(".newsletter_finish"));
+    document.querySelector(".newsletter_finish").classList.remove("hide");
   }
 }
 
