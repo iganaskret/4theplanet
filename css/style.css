@@ -268,7 +268,7 @@ a {
 
 /* SVG TICKET BUTTON */
 #ticket_section {
-  position: relative;
+position: relative;
 }
 
 .SVG_ticket_btn {
@@ -278,6 +278,7 @@ a {
   position: absolute;
   right: 0;
   padding: 2em;
+  z-index:2;
 }
 /* lottie */
 #ticketButton {
@@ -618,7 +619,7 @@ a.button3 {
 .slot_machine {
   position: absolute;
   margin: 2em;
-  display: none;
+
 }
 .grid-slot {
   display: grid;
@@ -691,7 +692,7 @@ a.button3 {
 
 .stop {
   display: none;
-}
+} 
 
 /* MEDIA QUERIES */
 
@@ -703,12 +704,18 @@ a.button3 {
 @media only screen and (min-width: 768px) {
   .SVG_ticket_btn {
     /* pointer-events: auto; */
-    width: 20%;
+    width: 30%;
     height: auto;
     position: absolute;
     right: 0;
     bottom: 4em;
     padding: 2em;
+  }
+  #ticket_section {
+    position: absolute;
+    top: 35%;
+    left:6em;
+    z-index: 20;
   }
   .lottie-placeholder {
     width: 100%;
