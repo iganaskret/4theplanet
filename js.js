@@ -85,9 +85,9 @@ function clearSecondInterval() {
 
 function clearThirdInterval() {
   setTimeout(() => {
-    let picked1 = document.querySelector(".div1 .span3").textContent;
-    let picked2 = document.querySelector(".div2 .span3").textContent;
-    let picked3 = document.querySelector(".div3 .span3").textContent;
+    let picked1 = document.querySelector(".div1 .span3").src;
+    let picked2 = document.querySelector(".div2 .span3").src;
+    let picked3 = document.querySelector(".div3 .span3").src;
     console.log("wylosowałeś: " + picked1 + " " + picked2 + " " + picked3);
     if (arr1[3] === arr2[3] && arr1[3] === arr3[3]) {
       console.log("wygrana");
