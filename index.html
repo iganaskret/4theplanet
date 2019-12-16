@@ -12,6 +12,30 @@
     <title>Landing Page</title>
   </head>
   <body>
+    <div class="grain"></div>
+      <svg class="filterbox" xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <defs>
+      
+          <filter id="noise" filterRes="10" x="0" y="0" width="100%" height="100%">
+  
+            <feFlood flood-color="#808080" result="neutral-gray" />
+               
+              <feTurbulence in="neutral-gray" type="fractalNoise" baseFrequency="2.5" numOctaves="10" stitchTiles="stitch" result="noise" ><animate attributeName="baseFrequency" dur="800s" values="2.5;2;2.5" repeatCount="indefinite" /></feTurbulence>
+              
+    <feColorMatrix in="noise" type="saturate" values="0" result="destaturatedNoise"></feColorMatrix>
+              
+              <feComponentTransfer in="desaturatedNoise" result="theNoise">
+              
+              <feFuncA type="table" tableValues="0 0 0.1 0"></feFuncA>
+              
+              </feComponentTransfer>
+              
+   <feBlend in="SourceGraphic" in2="theNoise" mode="hard-light" result="noisy-image" />
+              
+              </filter>
+              
+      </defs>
+  </svg>
     <div id="loader">
       <div id="loader_content">
       </div>
