@@ -20,7 +20,9 @@
   
             <feFlood flood-color="#808080" result="neutral-gray" />
                
-              <feTurbulence in="neutral-gray" type="fractalNoise" baseFrequency="2.5" numOctaves="10" stitchTiles="stitch" result="noise" ><animate attributeName="baseFrequency" dur="800s" values="2.5;2;2.5" repeatCount="indefinite" /></feTurbulence>
+              <feTurbulence in="neutral-gray" type="fractalNoise" baseFrequency="2.5" numOctaves="10" stitchTiles="stitch" result="noise" >
+                <animate attributeName="baseFrequency" dur="800s" values="2.5;2;2.5" repeatCount="indefinite" />
+              </feTurbulence>
               
     <feColorMatrix in="noise" type="saturate" values="0" result="destaturatedNoise"></feColorMatrix>
               
@@ -97,7 +99,7 @@
         <path fill="#F9BD54" class="morph" d="M8734-7299v541.817s489.46-163.709,970.04-218.279,952.279,0,952.279,0V-7299Z" transform="translate(-4965 3301.651)"></path>
       </g>
     </svg>
-
+<div class="slot">
     <div class="slot_machine start" data-aos="fade-in">
       <img class="machine" src="./images/machine.png" alt="Slot machine" />
       <img class="lever" src="./images/machine_lever.png" alt="Slot machine lever"/>
@@ -109,7 +111,7 @@
         <div class="div3">
         </div>
       </div>
-
+    </div>
 
     <section id="ticket_section">
 
