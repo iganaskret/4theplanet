@@ -89,10 +89,9 @@ function clearThirdInterval() {
     let picked2 = document.querySelector(".div2 .span3").src;
     let picked3 = document.querySelector(".div3 .span3").src;
     console.log("wylosowałeś: " + picked1 + " " + picked2 + " " + picked3);
-    if (arr1[3] === arr2[3] && arr1[3] === arr3[3]) {
+    if (picked1 === picked2 && picked2 === picked3) {
       console.log("wygrana");
     }
-    console.log(arr1[3] + " " + arr2[3] + " " + arr3[3]);
   }, 2000);
 }
 
