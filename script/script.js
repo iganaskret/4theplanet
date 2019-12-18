@@ -183,27 +183,36 @@ function loadSVG(data) {
 //   path: "/json/data_ticket2.json" // the path to the animation json
 // });
 // code
-let params = {
-  container: document.querySelector("#svg_ticket"), // the dom element that will contain the animation
-  renderer: "svg",
-  loop: false,
-  autoplay: true,
-  path: "/json/data_ticket2.json" // the path to the animation json svg_ticket
-};
 
-document.querySelector("#svg_ticket").addEventListener("click", startTicket);
+// start 
+/* document.querySelector("#svg_ticket").addEventListener("click", startTicket); */
+
+let params_ticket = lottie.loadAnimation({
+container: document.querySelector("#svg_ticket"), // the dom element that will contain the animation
+renderer: "svg",
+loop: false,
+autoplay: false,
+path: "data_ticket.json" // the path to the animation json svg_ticket
+});
+params_ticket.setSpeed(2.1);
 
 function startTicket() {
-  console.log("hi");
-
+// params.setDirection(1);
+params_ticket.play();
 }
+params_ticket.addEventListener("complete", function() {
+// params_ticket.destroy();
+document.querySelector(".SVG_ticket_btn").style = "display: block";
+// document.querySelector("#svg_ticket").style = "opacity: 0";
+});
 
-let anim;
-anim = lottie.loadAnimation(params);
-anim.onComplete = function() {
-  document.querySelector(".SVG_ticket_btn").style = "display: block";
-  document.querySelector("#svg_ticket").style = "opacity: 0";
-};
+params_ticket.addEventListener("enterFrame", function(animation) {
+if (animation.currentTime > params_ticket.totalFrames - 1) {
+params_ticket.pause();
+}
+});
+
+// end
 
 // NEWSLETTER - 1step form
 // https://form4earth-2b74.restdb.io/rest/subscribers
@@ -273,13 +282,28 @@ function submittingCompletedNewsletter(inputData) {
 }
 
 // SLOT MACHINE
-
+let gamecount = 0;
 const machine_lever = document.querySelector(".lever");
 
 machine_lever.addEventListener("click", function() {
   machine_lever.classList.add("lever_animation");
+  gamecount++;
+console.log(gamecount);
 
+  if (gamecount>8) {
+ startTicket();
+let slot_machine= document.querySelector(".slot_machine");
+let communicate = document.createElement("span"); 
+communicate.classList.add("comm");
+
+communicate.textContent="SORRY YOU YOU'RE NOT LUCKY TODAY BUT HERE IS YOUR FREE TICKET";
+slot_machine.appendChild(communicate);
+
+ 
+  }
 });
+
+
 machine_lever.addEventListener("animationend", function() {
  
   machine_lever.classList.remove("lever_animation");

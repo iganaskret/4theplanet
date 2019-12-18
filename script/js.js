@@ -1,5 +1,9 @@
 "use strict";
 
+let imported = document.createElement("script");
+imported.src = "script.js"; 
+
+
 const arr1 = [0, 1, 2, 3, 4, 5];
 const arr2 = [0, 1, 2, 3, 4, 5];
 const arr3 = [0, 1, 2, 3, 4, 5];
@@ -94,7 +98,9 @@ function clearThirdInterval() {
     console.log("wylosowałeś: " + picked1 + " " + picked2 + " " + picked3);
     if (picked1 === picked2  && picked2  === picked3) {
       console.log("wygrana");
-    }
+      startTicket();
+      document.querySelector(".slot_machine").style.backgroundImage="url('/images/confetti.gif')";
+ }
     console.log(arr1[3] + " " + arr2[3] + " " + arr3[3]);
     document.querySelector(".start").style.pointerEvents = "auto";
   }, 2000);
@@ -111,6 +117,7 @@ function animatedSpin() {
   counter = 1;
   document.querySelector(".div1").classList.add("spin");
   document.querySelector(".spin").addEventListener("animationend", endSpin);
+
 }
 
 function animatedSpin2() {

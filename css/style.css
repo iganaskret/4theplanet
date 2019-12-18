@@ -631,6 +631,7 @@ a.button3 {
 /* Slot machine */
 .slot_machine {
   position: relative;
+  background-image: no-repeat cover;
 
 
 }
@@ -882,4 +883,15 @@ svg{overflow:visible;
   } */
   .slot{
     position: relative;
+    margin-left:5em;
   }
+.comm{
+  font-size: 2em;
+  position: absolute;
+  top: 0%;
+  margin: 5em;
+  z-index: 20;
+  font-weight: 800;
+  color: var(--special-color);
+background-image: url("/images/confetti.gif");
+}
