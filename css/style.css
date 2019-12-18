@@ -850,7 +850,7 @@ filter: url(#noise);
 
 /*  fixed */  
 .grain{
-  background: url(/images/grainnoise.gif) repeat center;
+  background: url(/images/grainnoise2.gif) repeat center;
   opacity: 0.1;
   position: fixed;
   z-index: 40;
