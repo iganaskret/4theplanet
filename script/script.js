@@ -195,6 +195,7 @@ document.querySelector("#svg_ticket").addEventListener("click", startTicket);
 
 function startTicket() {
   console.log("hi");
+
 }
 
 let anim;
@@ -277,6 +278,11 @@ const machine_lever = document.querySelector(".lever");
 
 machine_lever.addEventListener("click", function() {
   machine_lever.classList.add("lever_animation");
+
+});
+machine_lever.addEventListener("animationend", function() {
+ 
+  machine_lever.classList.remove("lever_animation");
 });
 
 // SCROLL LOTTIE INTERACTION
