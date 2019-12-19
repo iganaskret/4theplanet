@@ -143,7 +143,6 @@ function spin(arr, nr) {
       arr[i] = arr[i] + 1;
     }
 
-
     if (nr == 1) {
       document.querySelector(".div" + nr + " .span" + i).src = "icons/gamico" + arr[i] + ".png";
     } else if (nr == 2) {
