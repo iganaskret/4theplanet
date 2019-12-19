@@ -46,14 +46,9 @@ form_code.addEventListener("submit", evt => {
     };
     submitFormCode(inputData);
   } else {
-/*     alert("It's seems like your email is incorrect"); */
+     alert("It's seems like your email is incorrect"); 
   }
-  // const inputData = {
-  //   Name: form.elements.fullname.value,
-  //   Email: form.elements.email.value,
-  //   Subscriber: form.elements.subscription.value
-  // };
-  // submitForm(inputData);
+
 });
 function submitFormCode(inputData) {
   let postData = JSON.stringify(inputData);
@@ -67,7 +62,6 @@ function submitFormCode(inputData) {
     body: postData
   })
     .then(res => res.json())
-    // .then(inputData => console.log(inputData))
     .then(inputData => submittingCompleted(inputData));
 }
 function submittingCompleted(inputData) {
@@ -75,7 +69,6 @@ function submittingCompleted(inputData) {
   if (inputData.status == 400) {
     alert("Your email is already in our database!");
   } else {
-    // document.location.href = "subpage.html";
     form_code.classList.add("hide");
     document.querySelector(".success-message").classList.remove("hide");
   }
@@ -93,8 +86,6 @@ var overlay = document.querySelector("#morph");
 var morphing = anime({
   targets: ".morph",
   d: [{ value: "M8734-7299h154.057s469.97.589,956,0,614.614,0,614.614,0H8734Z" }, { value: "M8734-7299l-.184,1079.988h1922.5V-7299Z" }],
-  // transform: [{ value: "translate(-100 20)" }, { value: "translate(-8733.816 7299)" }],
-  // WebkitTransform: [{ value: "translate(-100 20)" }, { value: "translate(-8733.816 7299)" }],
   easing: "easeInOutQuint",
   duration: 1300,
   loop: false,
@@ -125,21 +116,12 @@ function showWpData(data) {
     //populate
     const paragraph_title = clone.querySelector(".paragraph_title");
     const paragraph_text = clone.querySelector(".paragraph_text");
-    // const paragraph_img = clone.querySelector(".paragraph_img");
-
-    // counter, dodaje id #lottie + counter
 
     clone.querySelector(".lottie-placeholder").setAttribute("id", "lottie" + counter);
     counter++;
 
     paragraph_title.textContent = post.title.rendered;
     paragraph_text.innerHTML = post.content.rendered;
-    // paragraph_img.src = post._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
-    // if (post.img != false) paragraph_img.src = post.img.guid;
-
-    // paragraph_img.src = anim;
-
-    // console.log(post);
 
     //append
     document.querySelector("." + post.position).appendChild(clone);
@@ -160,17 +142,6 @@ function loadSVG(data) {
   document.querySelector(".SVG_ticket_btn").innerHTML = data;
 }
 
-// let params = lottie.loadAnimation({
-//   container: document.querySelector("#svg_ticket"), // the dom element that will contain the animation
-//   renderer: "svg",
-//   loop: false,
-//   autoplay: true,
-//   path: "/json/data_ticket2.json" // the path to the animation json
-// });
-// code
-
-// start 
-/* document.querySelector("#svg_ticket").addEventListener("click", startTicket); */
 
 let params_ticket = lottie.loadAnimation({
 container: document.querySelector("#svg_ticket"), // the dom element that will contain the animation
@@ -182,13 +153,10 @@ path: "data_ticket.json" // the path to the animation json svg_ticket
 params_ticket.setSpeed(2.1);
 
 function startTicket() {
-// params.setDirection(1);
 params_ticket.play();
 }
 params_ticket.addEventListener("complete", function() {
-// params_ticket.destroy();
 document.querySelector(".SVG_ticket_btn").style = "display: block";
-// document.querySelector("#svg_ticket").style = "opacity: 0";
 });
 
 params_ticket.addEventListener("enterFrame", function(animation) {
@@ -229,14 +197,8 @@ form_newsletter.addEventListener("submit", evt => {
     console.log(inputData);
     submitFormSubscribtion(inputData);
   } else {
-   /*  alert("It's seems like your email is incorrect"); */
+    alert("It's seems like your email is incorrect"); 
   }
-  // const inputData = {
-  //   Name: form.elements.fullname.value,
-  //   Email: form.elements.email.value,
-  //   Subscriber: form.elements.subscription.value
-  // };
-  // submitForm(inputData);
 });
 function submitFormSubscribtion(inputData) {
   let postData = JSON.stringify(inputData);
@@ -252,16 +214,13 @@ function submitFormSubscribtion(inputData) {
   })
     .then(res => res.json())
     .then(inputData => submittingCompletedNewsletter(inputData));
-  // .then(inputData => submittingCompletedNewsletter(inputData));
 }
 function submittingCompletedNewsletter(inputData) {
   console.log(inputData);
   if (inputData.status == 400) {
-    /* alert("Your email is already in our database!"); */
+    alert("Your email is already in our database!"); 
   } else {
-/*     alert("Well done"); */
     form_newsletter.classList.add("hide");
-    // form_newsletter.appendChild(this.document.querySelector(".newsletter_finish"));
     document.querySelector(".newsletter_finish").classList.remove("hide");
   }
 }
@@ -319,12 +278,7 @@ function loadLottieData() {
     // calculate the percentage the user has scrolled down the page
     let scrollPercent = (120 * $(window).scrollTop()) / ($(document).height() - $(window).height());
 
-    // console.log(anim.currentRawFrame);
-
     let scrollPercentRounded = Math.round(scrollPercent);
-
-    /*console.log( (scrollPercentRounded / 100) * anim.totalFrames );*/
-
     anim.goToAndStop((scrollPercentRounded / 100) * 4000);
   });
 }
@@ -348,11 +302,7 @@ function loadLottieData2() {
     // calculate the percentage the user has scrolled down the page
     let scrollPercent = (100 * $(window).scrollTop()) / ($(document).height() - $(window).height());
 
-    // console.log(anim2.currentRawFrame);
-
     let scrollPercentRounded = Math.round(scrollPercent);
-
-    /*console.log( (scrollPercentRounded / 100) * anim.totalFrames );*/
 
     anim2.goToAndStop((scrollPercentRounded / 100) * 4000);
   });
