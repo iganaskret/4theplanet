@@ -40,7 +40,6 @@ function populate(div, nr) {
   }
 }
 
-// let counter = 0;
 let interval;
 let interval2;
 let interval3;
@@ -56,9 +55,7 @@ document.querySelector(".start").addEventListener("click", () => {
     animatedSpin3();
   }, 20);
   document.querySelector(".start").style.pointerEvents = "none";
-  
- /*document.querySelector("button.stop").style.display = "block"; */
-  setTimeout(stopSpinning, 100 * randomNumbers());
+    setTimeout(stopSpinning, 100 * randomNumbers());
   console.log("click");
 });
 
@@ -66,20 +63,8 @@ function stopSpinning() {
   clearInterval(interval);
   clearSecondInterval();
   clearThirdInterval();
-
-  /*  document.querySelector(".start").style.display = "block";
-  document.querySelector("button.stop").style.display = "none"; */
   didIWin();
 }
-
-// document.querySelector("button.stop").addEventListener("click", () => {
-//   clearInterval(interval);
-//   clearSecondInterval();
-//   clearThirdInterval();
-//   document.querySelector("button").style.display = "block";
-//   document.querySelector("button.stop").style.display = "none";
-//   didIWin();
-// });
 
 function clearSecondInterval() {
   setTimeout(() => {
@@ -157,8 +142,7 @@ function spin(arr, nr) {
     } else {
       arr[i] = arr[i] + 1;
     }
-    // document.querySelector(".div" + nr + " .span" + i).src =
-    //   "icons/gamico" + arr[i] + ".png";
+
 
     if (nr == 1) {
       document.querySelector(".div" + nr + " .span" + i).src = "icons/gamico" + arr[i] + ".png";
