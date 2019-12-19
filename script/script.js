@@ -1,5 +1,6 @@
 "use strict";
-
+let imported = document.createElement("script");
+imported.src = "js.js"; 
 // LOADER GIF
 window.setTimeout(function() {
 document.querySelector("#loading-image").classList.add("fade_loader");
@@ -45,7 +46,7 @@ form_code.addEventListener("submit", evt => {
     };
     submitFormCode(inputData);
   } else {
-    alert("It's seems like your email is incorrect");
+/*     alert("It's seems like your email is incorrect"); */
   }
   // const inputData = {
   //   Name: form.elements.fullname.value,
@@ -75,13 +76,12 @@ function submittingCompleted(inputData) {
     alert("Your email is already in our database!");
   } else {
     // document.location.href = "subpage.html";
-    morphing.reverse();
-    morphing.play();
-    overlay.classList.remove("pointer");
-    sect2.classList.remove("animated", "display", "flipInY", "delay-1s");
-    document.body.style = "overflow: auto; ";
+    form_code.classList.add("hide");
+    document.querySelector(".success-message").classList.remove("hide");
   }
+
 }
+ 
 
 // MORPH TRANSITIONS
 
@@ -229,7 +229,7 @@ form_newsletter.addEventListener("submit", evt => {
     console.log(inputData);
     submitFormSubscribtion(inputData);
   } else {
-    alert("It's seems like your email is incorrect");
+   /*  alert("It's seems like your email is incorrect"); */
   }
   // const inputData = {
   //   Name: form.elements.fullname.value,
@@ -257,9 +257,9 @@ function submitFormSubscribtion(inputData) {
 function submittingCompletedNewsletter(inputData) {
   console.log(inputData);
   if (inputData.status == 400) {
-    alert("Your email is already in our database!");
+    /* alert("Your email is already in our database!"); */
   } else {
-    alert("Well done");
+/*     alert("Well done"); */
     form_newsletter.classList.add("hide");
     // form_newsletter.appendChild(this.document.querySelector(".newsletter_finish"));
     document.querySelector(".newsletter_finish").classList.remove("hide");
@@ -280,7 +280,10 @@ console.log(gamecount);
 let slot_machine= document.querySelector(".slot_machine");
 let communicate = document.createElement("span"); 
 communicate.classList.add("comm");
-
+document.querySelector(".slot_machine").style.backgroundImage="url('/images/confetti.gif')";
+document.querySelector(".slot_machine").style.backgroundPosition="center"; 
+document.querySelector(".slot_machine").style.backgroundRepeat= "no-repeat"; 
+document.querySelector(".slot_machine").style.backgroundSize= "cover"; 
 communicate.textContent="SORRY YOU YOU'RE NOT LUCKY TODAY BUT HERE IS YOUR FREE TICKET";
 slot_machine.appendChild(communicate);
 
@@ -354,3 +357,15 @@ function loadLottieData2() {
     anim2.goToAndStop((scrollPercentRounded / 100) * 4000);
   });
 }
+document.querySelector(".close-btn").addEventListener("click", () => {
+  morphing.reverse();
+  morphing.play();
+  overlay.classList.remove("pointer");
+  sect2.classList.remove("animated", "display", "flipInY", "delay-1s");
+  document.body.style = "overflow: auto; ";
+  form_code.classList.remove("hide");
+  document.querySelector(".success-message").classList.add("hide");
+  document.querySelector(".SVG_ticket_btn").style = "display: none";
+  document.querySelector(".slot_machine").style.backgroundImage = "none";
+ });
+ 

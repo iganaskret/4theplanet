@@ -1,8 +1,5 @@
 "use strict";
 
-let imported = document.createElement("script");
-imported.src = "script.js"; 
-
 
 const arr1 = [0, 1, 2, 3, 4, 5];
 const arr2 = [0, 1, 2, 3, 4, 5];
@@ -100,6 +97,9 @@ function clearThirdInterval() {
       console.log("wygrana");
       startTicket();
       document.querySelector(".slot_machine").style.backgroundImage="url('/images/confetti.gif')";
+      document.querySelector(".slot_machine").style.backgroundPosition="center"; 
+document.querySelector(".slot_machine").style.backgroundRepeat= "no-repeat"; 
+document.querySelector(".slot_machine").style.backgroundSize= "cover"; 
  }
     console.log(arr1[3] + " " + arr2[3] + " " + arr3[3]);
     document.querySelector(".start").style.pointerEvents = "auto";
