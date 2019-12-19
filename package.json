@@ -1,0 +1,27 @@
+{
+  "name": "planet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "minify-js": "minify script/js.js > dist/js.min.js",
+    "minify-js2": "minify script/lottie.js > dist/lottie.min.js",
+    "minify-js3": "minify script/script.js > dist/script.min.js",
+    "minify-html": "minify index.html > dist/index.html",
+    "minify-css": "minify css/style.css > css/style.min.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iganaskret/4theplanet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iganaskret/4theplanet/issues"
+  },
+  "homepage": "https://github.com/iganaskret/4theplanet#readme",
+  "devDependencies": {
+    "minify": "^5.0.0"
+  }
+}
