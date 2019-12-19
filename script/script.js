@@ -1,30 +1,14 @@
 "use strict";
 
 // LOADER GIF
-// source code from https://www.youtube.com/watch?v=b9zyKCsUJfY
-// credit to Codegrid
-
-let loader;
-
-function loadNow(opacity) {
-  if (opacity <= 0) {
-    displayContent();
-  } else {
-    loader.style.opacity = opacity;
-    window.setTimeout(function() {
-      loadNow(opacity - 0.05);
-    }, 100);
-  }
-}
-function displayContent() {
-  loader.style.display = "none";
-  document.querySelector("#loader_content");
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  loader = document.querySelector("#loader");
-  loadNow(1);
-});
+window.setTimeout(function() {
+  document.querySelector("#loading-image").classList.add("fade_loader");
+  window.setTimeout(function() {
+    document.querySelector("#loading-image").style.display = "none";
+    document.querySelector("#loading").classList.add("fade_loader");
+    document.querySelector("#loading").style.display = "none";
+  }, 1000);
+}, 3000);
 
 // FADE IN ANIMATION
 //https://www.npmjs.com/package/aos
@@ -180,29 +164,37 @@ function loadSVG(data) {
 //   renderer: "svg",
 //   loop: false,
 //   autoplay: true,
-//   path: "/json/data_ticket2.json" // the path to the animation json
+//   path: "data_ticket2.json" // the path to the animation json
 // });
+// params.setSpeed(2.1);
 // code
-let params = {
-  container: document.querySelector("#svg_ticket"), // the dom element that will contain the animation
-  renderer: "svg",
-  loop: false,
-  autoplay: true,
-  path: "/json/data_ticket2.json" // the path to the animation json svg_ticket
-};
 
-document.querySelector("#svg_ticket").addEventListener("click", startTicket);
+// document.querySelector("#svg_ticket").addEventListener("click", startTicket);
 
-function startTicket() {
-  console.log("hi");
-}
+// let params_ticket = lottie.loadAnimation({
+//   container: document.querySelector("#svg_ticket"), // the dom element that will contain the animation
+//   renderer: "svg",
+//   loop: false,
+//   autoplay: false,
+//   path: "data_ticket.json" // the path to the animation json svg_ticket
+// });
+// params_ticket.setSpeed(2.1);
 
-let anim;
-anim = lottie.loadAnimation(params);
-anim.onComplete = function() {
-  document.querySelector(".SVG_ticket_btn").style = "display: block";
-  document.querySelector("#svg_ticket").style = "opacity: 0";
-};
+// function startTicket() {
+//   // params.setDirection(1);
+//   params_ticket.play();
+// }
+// params_ticket.addEventListener("complete", function() {
+//   // params_ticket.destroy();
+//   document.querySelector(".SVG_ticket_btn").style = "display: block";
+//   // document.querySelector("#svg_ticket").style = "opacity: 0";
+// });
+
+// params_ticket.addEventListener("enterFrame", function(animation) {
+//   if (animation.currentTime > params_ticket.totalFrames - 1) {
+//     params_ticket.pause();
+//   }
+// });
 
 // NEWSLETTER - 1step form
 // https://form4earth-2b74.restdb.io/rest/subscribers

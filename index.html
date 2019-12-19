@@ -12,17 +12,20 @@
     <title>Landing Page</title>
   </head>
   <body>
-    <div id="loader">
+    <!-- <div id="loader">
       <div id="loader_content">
       </div>
-    </div>
+    </div> -->
+    <div id="loading">
+      <img id="loading-image" src="./images/loader.gif" alt="Loading gif" />
+      </div>  
       
       <nav>
           <div class="full-nav">
             <ul>
               <div class="nav-right">
             <li>
-              <a href="#team">Our Team</a>
+              <a href="#team">About</a>
             </li>
             <li>
               <a href="#contact">Contact</a>
@@ -48,7 +51,7 @@
             <button type="submit" name="submit" class="submit subscribe">Subscribe</button>
           </form><br>
         </div><div id="svg_landing">
-          <img class="landing_img" src="./images/morph.gif" alt="morph" />
+          <img class="landing_img" src="./images/converted.gif" alt="morph" />
           <!-- <video width="100%" height="100%" autoplay loop muted playsinline> -->
             <!-- <source src="./images/loader.mp4" type="video/mp4"> -->
               <!-- <source src="./images/loader_phone.mov"/>
@@ -74,7 +77,7 @@
       </g>
     </svg>
 
-    <div class="slot_machine start" data-aos="fade-in">
+    <div id="win" class="slot_machine start" data-aos="fade-in">
       <img class="machine" src="./images/machine.png" alt="Slot machine" />
       <img class="lever" src="./images/machine_lever.png" alt="Slot machine lever"/>
       <div class="grid-slot">
@@ -89,7 +92,7 @@
 
     <section id="ticket_section">
 
-        <!-- <button id="code_btn" class="submit">Click to get your code</button> -->
+        <button id="code_btn" class="submit">Click to get your code</button>
 
     <div id="svg_ticket">
       <section id="sect_1">
@@ -122,6 +125,29 @@
         <button type="submit" name="submit" class="submit">Submit</button>
       </form>
     </section>
+    <footer id="footer">
+      <nav>
+        <div class="full-nav">
+          <ul>
+            <div class="nav-right">
+          <li>
+            <a href="#team">About</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+          </div>
+            <div class="nav-left">
+            <li>
+              <a href="#Step4Earth">Step4Earth</a>
+            </li>
+          </div>
+          </ul>
+          
+        </nav>
+
+        <p class="date-tag">Techno 2k19 </p>
+    </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="script/lottie.js"></script>
