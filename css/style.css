@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
-
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap");
 /* INITIAL */
 
 * {
@@ -59,13 +58,14 @@ p {
 }
 
 #form_code input {
-  font-size: inherit;
+  font-size: 1.2em;
   border-radius: 5px;
   border: 2px solid var(--main-bg-color);
   background: var(--special-color);
   display: block;
   outline: none;
-  padding: 10px 20px;
+  padding: 15px 25px;
+  width: 300px;
   color: var(--main-bg-color);
 }
 
@@ -88,13 +88,13 @@ p {
 
 .text-label {
   font-size: 1rem;
-  font-weight: 200;
+  font-weight: 500;
   display: block;
   opacity: 1;
   visibility: visible;
   font-size: 1rem;
   transition: all 0.4s ease-in;
-  transform: translateY(-70px);
+  transform: translateY(-80px);
 }
 
 #form_code input:placeholder-shown + .text-label {
@@ -103,9 +103,19 @@ p {
   transform: translateY(-1rem);
 }
 
+#form_code p {
+  font-weight: 500;
+}
+
+#form_code p.terms {
+  font-weight: 100;
+  font-size: 0.7em;
+  margin: 10px 0;
+}
+
 .wrap_radio {
   display: grid;
-  grid-template-columns: 35px 200px;
+  grid-template-columns: 25px 50px 25px 50px;
 }
 
 #form_code input[type="radio"]:checked::after {
@@ -128,22 +138,24 @@ p {
 #form_code .submit {
   font-size: inherit;
   cursor: pointer;
-  padding: 10px;
+  padding: 14px;
   border-radius: 5px;
   border: 2px solid var(--main-bg-color);
   background-color: var(--special-color);
   color: var(--main-bg-color);
-  /* margin: 0 auto; */
   display: block;
+  margin: 20px auto;
+  font-weight: 500;
 }
 #form_code .submit:hover {
   color: var(--special-color);
   background-color: var(--main-bg-color);
 }
 .form-heading {
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   color: var(--main-bg-color);
-  font-size: 2em;
+  font-size: 2.5em;
+  font-weight: 800;
 }
 /* SVG MORPHING */
 #morph {
