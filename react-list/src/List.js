@@ -130,7 +130,7 @@ class List extends Component {
         <table id="list">
           <thead>
             <tr className="head-row">
-              <th>First name</th>
+              <th>Fullname</th>
               <th>Email</th>
               <th>Discount code</th>
               <th>Activated</th>
