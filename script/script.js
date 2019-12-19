@@ -1,30 +1,15 @@
 "use strict";
 
 // LOADER GIF
-// source code from https://www.youtube.com/watch?v=b9zyKCsUJfY
-// credit to Codegrid
+window.setTimeout(function() {
+document.querySelector("#loading-image").classList.add("fade_loader");
+window.setTimeout(function() {
+document.querySelector("#loading-image").style.display = "none";
+document.querySelector("#loading").classList.add("fade_loader");
+document.querySelector("#loading").style.display = "none";
+}, 1000);
+}, 3000);
 
-let loader;
-
-function loadNow(opacity) {
-  if (opacity <= 0) {
-    displayContent();
-  } else {
-    loader.style.opacity = opacity;
-    window.setTimeout(function() {
-      loadNow(opacity - 0.05);
-    }, 100);
-  }
-}
-function displayContent() {
-  loader.style.display = "none";
-  document.querySelector("#loader_content");
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  loader = document.querySelector("#loader");
-  loadNow(1);
-});
 
 // FADE IN ANIMATION
 //https://www.npmjs.com/package/aos
@@ -289,8 +274,8 @@ machine_lever.addEventListener("click", function() {
   machine_lever.classList.add("lever_animation");
   gamecount++;
 console.log(gamecount);
-
-  if (gamecount>8) {
+/* put this into js.js winning function to avoid*/
+  if (gamecount>6) {
  startTicket();
 let slot_machine= document.querySelector(".slot_machine");
 let communicate = document.createElement("span"); 

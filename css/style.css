@@ -55,9 +55,12 @@ p {
 }
 /* FORM STYLING */
 
+
 #form_code {
   padding: 1em;
+  padding-left: 1em;
   background: var(--special-color);
+  width: 101%;
 }
 #form_code::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -65,19 +68,24 @@ p {
   background: var(--special-color);
   opacity: 0.7; /* Firefox */
 }
+
 #form_code input {
-  font-size: inherit;
+  font-size: 1em;
   border-radius: 5px;
   border: 2px solid var(--main-bg-color);
   background: var(--special-color);
   display: block;
   outline: none;
-  padding: 10px 20px;
+  padding: 15px 25px;
+  width: auto;
   color: var(--main-bg-color);
 }
-/* input:focus {
-  background: var(--main-bg-color);
-} */
+
+#form_code input:focus {
+  background: #fad087;
+  border: 2px solid var(--main-bg-color);
+}
+
 #form_code input[type="radio"] {
   -webkit-appearance: none;
   background: none;
@@ -89,9 +97,39 @@ p {
   place-items: center;
   display: grid;
 }
+
+.text-label {
+  font-size: 1rem;
+  font-weight: 500;
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  font-size: 1rem;
+  transition: all 0.4s ease-in;
+  transform: translateY(-80px);
+}
+
+#form_code input:placeholder-shown + .text-label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-1rem);
+}
+
+#form_code p {
+  font-weight: 500;
+}
+
+#form_code p.terms {
+  font-weight: 100;
+  font-size: 0.7em;
+  margin: 10px 0;
+}
+
 .wrap_radio {
   display: grid;
+  grid-template-columns: 25px 50px 25px 50px;
 }
+
 #form_code input[type="radio"]:checked::after {
   width: 0.5rem;
   height: 0.5rem;
@@ -112,13 +150,14 @@ p {
 #form_code .submit {
   font-size: inherit;
   cursor: pointer;
-  padding: 10px;
+  padding: 14px;
   border-radius: 5px;
   border: 2px solid var(--main-bg-color);
   background-color: var(--special-color);
   color: var(--main-bg-color);
-  /* margin: 0 auto; */
   display: block;
+  margin: 20px auto;
+  font-weight: 500;
 }
 #form_code .submit:hover {
   color: var(--special-color);
@@ -128,6 +167,7 @@ p {
   padding-bottom: 1em;
   color: var(--main-bg-color);
   font-size: 2em;
+  font-weight: 800;
 }
 /* SVG MORPHING */
 #morph {
@@ -166,10 +206,10 @@ section {
 #sect_2 {
   display: none;
   position: absolute;
-  z-index: 10;
+  z-index: 30;
   color: var(--main-bg-color);
   position: fixed;
-  top: 0;
+bottom: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
@@ -182,26 +222,67 @@ section {
 
 /* LOADER */
 
-img.landing_img {
-  width: 100%;
-  height: auto;
-}
-
-#loader {
+/* LOADER */
+#loading {
+  top: 0px;
+  left: 0px;
   position: fixed;
   width: 100%;
   height: 100%;
   z-index: 99;
-  /* overflow: visible; */
-  /* background: #080e26 url(../images/morph.gif) no-repeat center center; */
-  background: #080e26 url(https://media.giphy.com/media/1VV747Ys8vI5cUZlqD/giphy.gif) no-repeat center;
+  overflow: visible;
+  background: var(--main-bg-color);
+  filter:url("#noise");
 }
-#loader > h1 {
+  
+  .fade_loader_block {
+  animation: fade_loader_block 1.3s linear;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation: fade_loader_block 1.3s linear;
+  }
+  
+  @keyframes fade_loader_block {
+  0% {
+  opacity: 1;
+  display: block;
+  }
+  80% {
+  opacity: 0;
+  }
+  100% {
+  opacity: 0;
+  display: none;
+  }
+  }
+  
+  #loading-image {
+  bottom: 0;
+  left: 0;
+  margin: auto;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+  right: 0;
+  top: 0;
+  opacity: 0.8;
+  
+  }
+  
+  .fade_loader {
+  animation: fade_loader 1.3s linear;
+  -webkit-animation: fade_loader 1.3s linear;
+  }
+  
+  @keyframes fade_loader {
+  0% {
+  opacity: 1;
+  }
+  80% {
+  opacity: 0;
+  }
+  100% {
+  opacity: 0;
+  }
+  }
 
 /* NAVBAR */
 
@@ -219,6 +300,11 @@ img.landing_img {
   /* font-size: 20px; */
   padding-right: 10px;
 }
+#adminpanel{
+
+  padding-right: 0;
+}
+
 .nav-left li {
   list-style-type: none;
   /* font-size: 21px; */
@@ -264,6 +350,16 @@ img.landing_img {
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
 }
+.win_link {
+  color: var(--special-color);
+  text-decoration: none;
+}
+.win_underline {
+  border-bottom: 3px solid var(--special-color);
+  text-decoration: none;
+
+  bottom: 3em;
+}
 a {
   text-decoration: none;
 }
@@ -282,6 +378,8 @@ a {
 position: absolute;
 top: 15em;
 left: 6em;
+z-index: 20;
+width:30em;
 }
 
 .SVG_ticket_btn {
@@ -289,9 +387,10 @@ left: 6em;
   width: 60%;
   height: auto;
   position: absolute;
-  right: 0;
+  left: 0;
+  top: 50%;
   padding: 2em;
-  z-index:20;
+  z-index: 20;
 }
 /* lottie */
 #ticketButton {
@@ -628,13 +727,19 @@ a.button3 {
 /* Newsletter styling and keyframes - END */
 
 /* Slot machine */
-/* Slot machine */
+/* Slot machine 
+
+
+
+*/
 .slot_machine {
   position: relative;
   background-image: no-repeat cover;
 
 
 }
+/* The translate numbers in this section are the outcome of machine mechanics that are based on pixel values. 
+The positioning would be better if we used svg machine but did not have time to do so*/
 .grid-slot {
   display: grid;
   grid-template-columns: repeat(3, 100px);
@@ -717,11 +822,41 @@ a.button3 {
   .full-nav{
     font-size:1.5em;
   }
+  #form_code {
+    padding: 9em;
+    padding-left: 10em;
+  }
 
+  #form_code input {
+    font-size: 1.2em;
+    padding: 15px 25px;
+    width: 300px;
+  }
+
+  .form-heading {
+    padding-bottom: 1em;
+    font-size: 2.5em;
+    font-weight: 800;
+  }
 }
 
 @media only screen and (min-width: 768px) {
+  .win_underline {
 
+
+    position: absolute;
+
+  }
+  .comm{
+    font-size: 2em;
+    position: absolute;
+    top: 0%;
+    margin: 5em;
+    z-index: 20;
+    font-weight: 800;
+    color: var(--special-color);
+  background-image: url("/images/confetti.gif");
+  }
   .SVG_ticket_btn {
     /* pointer-events: auto; */
     width: 30%;
@@ -733,9 +868,9 @@ a.button3 {
   }
   #ticket_section {
     position: absolute;
-    top: 35%;
+    top: 15em;
     left:6em;
-    z-index: 20;
+   width:30em;
   }
   .lottie-placeholder {
     width: 100%;
@@ -813,6 +948,10 @@ a.button3 {
     grid-column: 2;
     grid-row: 1/5;
   }
+  .slot{
+  
+    margin-left:5em;
+  }
 }
 #lottie3 > image {
   width: 200px;
@@ -830,11 +969,13 @@ a.button3 {
   grid-column: 1;
   z-index:-20;
   width:60%;
+  transform: translate3d(10px,10px,-1100px);
 }
 #lottie2 {
   grid-row: 1/3;
   grid-column: 2;
   z-index:-20;
+transform: translateZ(-110px);
 }
 /* 
 absolute */
@@ -852,7 +993,7 @@ filter: url(#noise);
 /*  fixed */  
 .grain{
   background: url(/images/grainnoise2.gif) repeat center;
-  opacity: 0.1;
+  opacity: 0.25;
   position: fixed;
   z-index: 40;
   top: 0;
@@ -883,15 +1024,23 @@ svg{overflow:visible;
   } */
   .slot{
     position: relative;
-    margin-left:5em;
+
   }
 .comm{
-  font-size: 2em;
+  font-size: 1em;
   position: absolute;
   top: 0%;
-  margin: 5em;
-  z-index: 20;
-  font-weight: 800;
+margin:1em;
+  z-index: 30;
+  font-weight: 400;
   color: var(--special-color);
 background-image: url("/images/confetti.gif");
+}
+.comm2{
+
+  color: var(--special-color);
+  position: absolute;
+  top: 70%;
+  font-size: 2em;
+  margin-left: 5em;
 }
