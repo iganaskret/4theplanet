@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/4theplanet/static/css/main.1de708c7.chunk.css",
+    "main.js": "/4theplanet/static/js/main.671537c5.chunk.js",
+    "main.js.map": "/4theplanet/static/js/main.671537c5.chunk.js.map",
+    "runtime-main.js": "/4theplanet/static/js/runtime-main.cd4cd7fe.js",
+    "runtime-main.js.map": "/4theplanet/static/js/runtime-main.cd4cd7fe.js.map",
+    "static/js/2.000fc9af.chunk.js": "/4theplanet/static/js/2.000fc9af.chunk.js",
+    "static/js/2.000fc9af.chunk.js.map": "/4theplanet/static/js/2.000fc9af.chunk.js.map",
+    "index.html": "/4theplanet/index.html",
+    "precache-manifest.6d076d991c0fbc09d75a5e8bf219e454.js": "/4theplanet/precache-manifest.6d076d991c0fbc09d75a5e8bf219e454.js",
+    "service-worker.js": "/4theplanet/service-worker.js",
+    "static/css/main.1de708c7.chunk.css.map": "/4theplanet/static/css/main.1de708c7.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cd4cd7fe.js",
+    "static/js/2.000fc9af.chunk.js",
+    "static/css/main.1de708c7.chunk.css",
+    "static/js/main.671537c5.chunk.js"
+  ]
+}
