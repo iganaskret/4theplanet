@@ -303,7 +303,6 @@ function loadLottieData2() {
     let scrollPercent = (100 * $(window).scrollTop()) / ($(document).height() - $(window).height());
 
     let scrollPercentRounded = Math.round(scrollPercent);
-
     anim2.goToAndStop((scrollPercentRounded / 100) * 4000);
   });
 }
@@ -315,6 +314,7 @@ document.querySelector(".close-btn").addEventListener("click", () => {
   document.body.style = "overflow: auto; ";
   form_code.classList.remove("hide");
   document.querySelector(".success-message").classList.add("hide");
+  document.querySelector(".comm").classList.add("hide");
   document.querySelector(".SVG_ticket_btn").style = "display: none";
   document.querySelector(".slot_machine").style.backgroundImage = "none";
  });
