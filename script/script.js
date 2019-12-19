@@ -107,7 +107,10 @@ var overlay = document.querySelector("#morph");
 
 var morphing = anime({
   targets: ".morph",
-  d: [{ value: "M8734-7299h154.057s469.97.589,956,0,614.614,0,614.614,0H8734Z" }, { value: "M8734-7299l-.184,1079.988h1922.5V-7299Z" }],
+  d: [
+    { value: "M8734-7299h154.057s469.97.589,956,0,614.614,0,614.614,0H8734Z" },
+    { value: "M8734-7299l-.184,1079.988h1922.5V-7299Z" }
+  ],
   // transform: [{ value: "translate(-100 20)" }, { value: "translate(-8733.816 7299)" }],
   // WebkitTransform: [{ value: "translate(-100 20)" }, { value: "translate(-8733.816 7299)" }],
   easing: "easeInOutQuint",
@@ -144,7 +147,9 @@ function showWpData(data) {
 
     // counter, dodaje id #lottie + counter
 
-    clone.querySelector(".lottie-placeholder").setAttribute("id", "lottie" + counter);
+    clone
+      .querySelector(".lottie-placeholder")
+      .setAttribute("id", "lottie" + counter);
     counter++;
 
     paragraph_title.textContent = post.title.rendered;
@@ -219,6 +224,7 @@ btn_newsletter.addEventListener("click", function() {
 
 btn_newsletter.addEventListener("animationend", function() {
   form_newsletter.classList.remove("hide");
+  document.querySelector("#svg_ticket").classList.add("hide");
   email_input.classList.add("oval-in");
   submit_btn.classList.add("oval-in-submit");
   btn_newsletter.classList.add("hide");
@@ -299,7 +305,9 @@ function loadLottieData() {
 
   $(window).scroll(function() {
     // calculate the percentage the user has scrolled down the page
-    let scrollPercent = (120 * $(window).scrollTop()) / ($(document).height() - $(window).height());
+    let scrollPercent =
+      (120 * $(window).scrollTop()) /
+      ($(document).height() - $(window).height());
 
     // console.log(anim.currentRawFrame);
 
@@ -328,7 +336,9 @@ function loadLottieData2() {
 
   $(window).scroll(function() {
     // calculate the percentage the user has scrolled down the page
-    let scrollPercent = (100 * $(window).scrollTop()) / ($(document).height() - $(window).height());
+    let scrollPercent =
+      (100 * $(window).scrollTop()) /
+      ($(document).height() - $(window).height());
 
     // console.log(anim2.currentRawFrame);
 
