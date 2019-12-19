@@ -243,7 +243,7 @@ document.querySelector(".slot_machine").style.backgroundImage="url('/images/conf
 document.querySelector(".slot_machine").style.backgroundPosition="center"; 
 document.querySelector(".slot_machine").style.backgroundRepeat= "no-repeat"; 
 document.querySelector(".slot_machine").style.backgroundSize= "cover"; 
-communicate.textContent="SORRY YOU YOU'RE NOT LUCKY TODAY BUT HERE IS YOUR FREE TICKET";
+communicate.textContent="SORRY YOU'RE NOT SO LUCKY TODAY BUT HERE IS YOUR FREE TICKET ANYWAY";
 slot_machine.appendChild(communicate);
 
  
@@ -273,7 +273,7 @@ function loadLottieData() {
     path: "icon_1.json"
   };
   anim = bodymovin.loadAnimation(animData);
-
+  /* https://www.fariskassim.com/stage/typojanchi/old_v1/?fbclid=IwAR2XIGdr3y_oZ5gSpqdVlaAJPwoZEv-F0hEfovrCwwwZ5zWUS7B1wb35AEA */
   $(window).scroll(function() {
     // calculate the percentage the user has scrolled down the page
     let scrollPercent = (120 * $(window).scrollTop()) / ($(document).height() - $(window).height());
